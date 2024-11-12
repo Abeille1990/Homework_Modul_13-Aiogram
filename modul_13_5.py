@@ -11,7 +11,6 @@ bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
 kb = ReplyKeyboardMarkup(resize_keyboard=True)
 
-
 class UserState(StatesGroup):
     age = State()
     growth = State()
@@ -21,8 +20,7 @@ class UserState(StatesGroup):
 button = KeyboardButton(text='Расчитать',)
 button2 = KeyboardButton(text="Информация")
 
-kb.add(button)
-kb.add(button2)
+kb.row(button, button2)
 
 
 @dp.message_handler(commands=['start'])
